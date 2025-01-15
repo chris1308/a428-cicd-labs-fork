@@ -3,10 +3,6 @@ node {
     def dockerImage = 'node:16-buster-slim'
     def dockerArgs = '-p 3001:3001'
 
-    properties([
-        pollSCM('H/2 * * * *')  // Poll every 2 minutes
-    ])
-    
     try {
         // Using Docker container for the pipeline
         docker.image(dockerImage).inside(dockerArgs) {
